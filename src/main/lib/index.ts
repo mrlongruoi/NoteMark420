@@ -81,7 +81,7 @@ export const createNote: CreateNote = async () => {
 
   const { name: filename, dir: parentDir } = path.parse(filePath)
 
-  if (parentDir !== rootDir) {
+  if (path.resolve(parentDir) !== path.resolve(rootDir)) {
     await dialog.showMessageBox({
       type: 'error',
       title: 'Creation failed',
